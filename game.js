@@ -3,9 +3,10 @@ function computerPlay() {
         "Rock", 
         "Paper", 
         "Scissors"
-];
+    ];
 
     let randomStrategy = computerStrategy[Math.floor(Math.random() * computerStrategy.length)];
     console.log(randomStrategy);
 }
-    computerPlay()
+
+computerPlay()
