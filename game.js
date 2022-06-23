@@ -5,8 +5,9 @@ function computerPlay() {
         "Scissors"
     ];
 
-    let randomStrategy = computerStrategy[Math.floor(Math.random() * computerStrategy.length)];
-    console.log(randomStrategy);
+    let randomStrategy = computerStrategy[Math.floor(Math.random() * computerStrategy.length)]; // Choose random string from computerStrategy. 
+    return randomStrategy; // Return the resulting value.
 }
 
-computerPlay()
+let result = computerPlay(); // "Result" is a placeholder for when I figure out what variable to feed this value into.
+console.log(result); // "Show value in console so that I can see it."
