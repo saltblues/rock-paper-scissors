@@ -1,5 +1,11 @@
-let greeting = "hello";
-function computerPlay(strategy) {  
-    let gameStrategies = ('Rock', 'Paper', 'Scissors');
-    let randomStrategy = gameStrategies(Math.floor(Math.random() * randomStrategy.length));
+function computerPlay() { 
+    let computerStrategy = [ // Create array for computer. Must use brackets[], not parentheses().
+        "Rock", 
+        "Paper", 
+        "Scissors"
+];
+
+    let randomStrategy = computerStrategy[Math.floor(Math.random() * computerStrategy.length)];
+    console.log(randomStrategy);
 }
+    computerPlay()
