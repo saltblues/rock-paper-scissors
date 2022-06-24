@@ -1,16 +1,13 @@
 function computerPlay() { 
     let computerStrategy = [ // Create array for computer. Must use brackets[], not parentheses().
-        "Rock", 
-        "Paper", 
-        "Scissors"
+        "rock", 
+        "paper", 
+        "scissors"
     ];
 
     let randomStrategy = computerStrategy[Math.floor(Math.random() * computerStrategy.length)]; // Choose random string from computerStrategy. 
     return randomStrategy; // Return the resulting value.
 }
-
-let computerSelection = computerPlay(); 
-console.log(computerSelection); // "Show value in console so that I can see it."
 
 function playerPrompt() { // Prompt for the player to type in their choice.
     let playerInput = (prompt('Choose rock, paper, or scissors.', '')); // playerInput is the string entered into the prompt.
@@ -25,27 +22,33 @@ function playerPrompt() { // Prompt for the player to type in their choice.
         }
     }
 
-let playerSelection = playerPrompt();
-console.log(playerSelection);
+function playRound() {
 
-let tieMessage = alert("It's a tie!");
-let winnerMessage = alert("You won!");
-let loserMessage = alert("You lost!");
+    const computerSelection = computerPlay().toLowerCase();
+    const playerSelection = playerPrompt().toLowerCase();
 
-function playRound(playerSelection, computerSelection) {
-    if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) { // if the answers are the same, it's a tie. case insensitive.
-        return tieMessage
-    } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
-        return winnerMessage
-    } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
-        return loserMessage
-    } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
-        return winnerMessage
-    } else if (computerSelection.toLowercase() === "paper" && playerSelection.toLowerCase() === "rock") {
-        return loserMessage
-    } else if (computerSelection.toLowercase() === "scissors" && playerSelection.toLowercase() === "rock") {
-        return winnerMessage
-    } else if (computerSelection.toLowercase() === "scissors" && playerSelection.toLowerCase() === "paper") {
-        return loserMessage
+    let tieMessage = "It's a tie!";
+    let winnerMessage = "You won!";
+    let loserMessage = "You lost!";
+
+    console.log(`Computer played ${computerSelection}`);
+    console.log(`You played ${playerSelection}`);
+
+    if (computerSelection === playerSelection) { // if the answers are the same, it's a tie. case insensitive.
+        return console.log(tieMessage)
+    } else if (computerSelection === "rock" && playerSelection === "paper") {
+        return console.log(winnerMessage)
+    } else if (computerSelection === "rock" && playerSelection === "scissors") {
+        return console.log(loserMessage)
+    } else if (computerSelection === "paper" && playerSelection === "scissors") {
+        return console.log(winnerMessage)
+    } else if (computerSelection === "paper" && playerSelection === "rock") {
+        return console.log(loserMessage)
+    } else if (computerSelection === "scissors" && playerSelection === "rock") {
+        return console.log(winnerMessage)
+    } else if (computerSelection === "scissors" && playerSelection === "paper") {
+        return console.log(loserMessage)
     }
 }
+
+playRound()
