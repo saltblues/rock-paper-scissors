@@ -9,8 +9,8 @@ function computerPlay() {
     return randomStrategy; // Return the resulting value.
 }
 
-let computerSelection = computerPlay(); // "Result" is a placeholder for when I figure out what variable to feed this value into.
-console.log(computerSelection); // "Show value in console so that I can see it."
+let computerSelection = computerPlay(); 
+// console.log(computerSelection); // "Show value in console so that I can see it."
 
 function playerPrompt() { // Prompt for the player to type in their choice.
     let playerInput = (prompt('Choose rock, paper, or scissors.', '')); // playerInput is the string entered into the prompt.
@@ -26,4 +26,10 @@ function playerPrompt() { // Prompt for the player to type in their choice.
     }
 
 let playerSelection = playerPrompt();
-console.log(playerSelection);
+// console.log(playerSelection);
+
+function playRound(a, b) {
+    console.log(playRound(playerSelection, computerSelection)); // problem keeps arising with infinite rounds. keeps prompting me. no results shown. figure out later. 
+}
+
+playRound();
