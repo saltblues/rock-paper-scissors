@@ -15,18 +15,15 @@ console.log(computerSelection); // "Show value in console so that I can see it."
 function playerPrompt() { // Prompt for the player to type in their choice.
     let playerChoice = (prompt('Choose rock, paper, or scissors.', '')); // playerChoice is the string entered into the prompt.
         if (playerChoice.toLowerCase() === 'rock'.toLowerCase()) { // .toLowerCase() converts playerChoice to lowercase and compares to choices in lowercase, so that it is case insensitive.
-            return true // if playerChoice is true, it will pass on.
+            return playerChoice // If playerChoice is true, it will pass on.
         } else if (playerChoice.toLowerCase() === 'paper'.toLowerCase()) {
-            return true
+            return playerChoice // Previously, I put "return playerChoice === true" but that would make it more lengthy when I need the value. Then I put "return playerChoice === 'Rock'" but I'm not sure if it's better to have it as the player typed it.
         } else if (playerChoice.toLowerCase() === 'scissors'.toLowerCase()) {
-            return true
+            return playerChoice
         } else {
-            console.log('Take the game seriously and try again.')
+            console.log('Take the game seriously and try again.') // If playerChoice is not rock paper or scissors it will not be accepted. Player must try again.
         }
-
-    if (playerChoice === true) { 
-        return 
     }
-}
 
-playerSelection();
+let playerSelection = playerPrompt();
+console.log(playerSelection);
