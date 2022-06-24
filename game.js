@@ -10,7 +10,7 @@ function computerPlay() {
 }
 
 let computerSelection = computerPlay(); 
-// console.log(computerSelection); // "Show value in console so that I can see it."
+console.log(computerSelection); // "Show value in console so that I can see it."
 
 function playerPrompt() { // Prompt for the player to type in their choice.
     let playerInput = (prompt('Choose rock, paper, or scissors.', '')); // playerInput is the string entered into the prompt.
@@ -26,10 +26,26 @@ function playerPrompt() { // Prompt for the player to type in their choice.
     }
 
 let playerSelection = playerPrompt();
-// console.log(playerSelection);
+console.log(playerSelection);
 
-function playRound(a, b) {
-    console.log(playRound(playerSelection, computerSelection)); // problem keeps arising with infinite rounds. keeps prompting me. no results shown. figure out later. 
+let tieMessage = alert("It's a tie!");
+let winnerMessage = alert("You won!");
+let loserMessage = alert("You lost!");
+
+function playRound(playerSelection, computerSelection) {
+    if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) { // if the answers are the same, it's a tie. case insensitive.
+        return tieMessage
+    } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
+        return winnerMessage
+    } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
+        return loserMessage
+    } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
+        return winnerMessage
+    } else if (computerSelection.toLowercase() === "paper" && playerSelection.toLowerCase() === "rock") {
+        return loserMessage
+    } else if (computerSelection.toLowercase() === "scissors" && playerSelection.toLowercase() === "rock") {
+        return winnerMessage
+    } else if (computerSelection.toLowercase() === "scissors" && playerSelection.toLowerCase() === "paper") {
+        return loserMessage
+    }
 }
-
-playRound();
