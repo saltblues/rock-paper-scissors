@@ -34,43 +34,58 @@ function playRound() {
     console.log(`Computer played ${computerSelection}`);
     console.log(`You played ${playerSelection}`);
 
-    let playerScore = 0;
-    let computerScore = 0;
+    function getScore() {
+        let playerScore = 0,
+            computerScore = 0;
+        
+        return [playerScore, computerScore];
+    }
+    
+    let score = getScore();
+    let scoreReport = `Your score is ${playerScore} to ${computerScore}`;
 
     if (computerSelection === playerSelection) { // If the selections are the same, it's a tie. Release tieMessage.
         playerScore ++;
-        computerScore ++;
-        return console.log(`Your score is ${playerScore}`)
+        computerScore ++; 
+        console.log(scoreReport)
+        return score;
     } else if (computerSelection === "rock" && playerSelection === "paper") {
         playerScore++;
         computerScore + 0;
-        return console.log(`Your score is ${playerScore}`);
+        console.log(scoreReport);
+        return score;
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
         playerScore + 0;
         computerScore++;
-        return console.log(`Your score is ${playerScore}`);
+        console.log(scoreReport);
+        return score;
     } else if (computerSelection === "paper" && playerSelection === "scissors") {
         playerScore++;
         computerScore + 0;
-        return console.log(`Your score is ${playerScore}`);
+        console.log(scoreReport);
+        return score;
     } else if (computerSelection === "paper" && playerSelection === "rock") {
         playerScore + 0;
         computerScore++;
-        return console.log(`Your score is ${playerScore}`);
+        console.log(scoreReport);
+        return score;
     } else if (computerSelection === "scissors" && playerSelection === "rock") {
         playerScore++;
         computerScore + 0;
-        return console.log(`Your score is ${playerScore}`);
+        console.log(scoreReport);
+        return score;
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
         playerScore + 0;
         computerScore++;
-        return console.log(`Your score is ${playerScore}`);
+        console.log(scoreReport);
+        return score;
     }
 }
 
 function game() {
     
     playRound()
+    getScore()
 
     for (let i = 0; i < 5; i++) {
 
