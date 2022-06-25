@@ -28,27 +28,69 @@ function playRound() {
     const playerSelection = playerPrompt().toLowerCase();
 
     let tieMessage = "It's a tie!";
-    let winnerMessage = "You won!";
-    let loserMessage = "You lost!";
+    let winnerMessage = "You won this round!";
+    let loserMessage = "You lost this round!";
 
     console.log(`Computer played ${computerSelection}`);
     console.log(`You played ${playerSelection}`);
 
-    if (computerSelection === playerSelection) { // if the answers are the same, it's a tie. case insensitive.
-        return console.log(tieMessage)
+    let playerScore = 0;
+    let computerScore = 0;
+
+    if (computerSelection === playerSelection) { // If the selections are the same, it's a tie. Release tieMessage.
+        playerScore ++;
+        computerScore ++;
+        return console.log(`Your score is ${playerScore}`)
     } else if (computerSelection === "rock" && playerSelection === "paper") {
-        return console.log(winnerMessage)
+        playerScore++;
+        computerScore + 0;
+        return console.log(`Your score is ${playerScore}`);
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
-        return console.log(loserMessage)
+        playerScore + 0;
+        computerScore++;
+        return console.log(`Your score is ${playerScore}`);
     } else if (computerSelection === "paper" && playerSelection === "scissors") {
-        return console.log(winnerMessage)
+        playerScore++;
+        computerScore + 0;
+        return console.log(`Your score is ${playerScore}`);
     } else if (computerSelection === "paper" && playerSelection === "rock") {
-        return console.log(loserMessage)
+        playerScore + 0;
+        computerScore++;
+        return console.log(`Your score is ${playerScore}`);
     } else if (computerSelection === "scissors" && playerSelection === "rock") {
-        return console.log(winnerMessage)
+        playerScore++;
+        computerScore + 0;
+        return console.log(`Your score is ${playerScore}`);
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
-        return console.log(loserMessage)
+        playerScore + 0;
+        computerScore++;
+        return console.log(`Your score is ${playerScore}`);
     }
 }
 
-playRound()
+function game() {
+    
+    playRound()
+
+    for (let i = 0; i < 5; i++) {
+
+        if ((playerScore + computerScore === 5) || (playerScore + computerScore === 10)) {
+            return finalResult();
+        }
+    }
+    
+    function finalResult() {
+        if (playerScore > computerScore) {
+        console.log("You won the game!");
+        }
+        else if (playerScore < computerScore) {
+        console.log("You lost the game...");
+        }
+        else if (computerScore === playerScore) {
+        console.log("Unbelievable! The game ends in a tie.");
+        }
+    }
+   
+}
+
+game()
