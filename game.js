@@ -24,12 +24,16 @@ function playerPrompt() { // Prompt for the player to type in their choice.
 
 function playRound() {
 
-    const computerSelection = computerPlay().toLowerCase();
+    function capitalizeFirstLetter(string) {  // when playRound reports results, i want the first letter in the selection at the beginning of the sentence to be capitalized.
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }   
+
+    const computerSelection = computerPlay().toLowerCase(); // capitalize first letter so the winnerMessage and loserMessage will be properly c
     const playerSelection = playerPrompt().toLowerCase();
 
     let tieMessage = "It's a tie!";
-    let winnerMessage = `You won! ${playerSelection} beats ${computerSelection}!`;
-    let loserMessage = `You lost! ${computerSelection} beats ${playerSelection}!`;
+    let winnerMessage = `You won! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}!`;
+    let loserMessage = `You lost! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}!`;
 
     console.log(`Computer played ${computerSelection}`);
     console.log(`You played ${playerSelection}`);
