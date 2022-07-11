@@ -28,12 +28,12 @@ function playRound() {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }   
 
-    const computerSelection = computerPlay().toLowerCase(); // capitalize first letter so the winnerMessage and loserMessage will be properly c
+    const computerSelection = computerPlay().toLowerCase(); // capitalize first letter so the winnerMessage and loserMessage will be properly capitalized
     const playerSelection = playerPrompt().toLowerCase();
 
-    let tieMessage = "It's a tie!";
-    let winnerMessage = `You won! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}!`;
-    let loserMessage = `You lost! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}!`;
+    let tieMessage = "It's a tie!"; // message shown in case of a tie
+    let winnerMessage = `You won! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}!`; // message shown if player wins
+    let loserMessage = `You lost! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}!`; // message shown if player loses
 
     console.log(`Computer played ${computerSelection}`);
     console.log(`You played ${playerSelection}`);
