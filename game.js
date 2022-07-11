@@ -28,8 +28,8 @@ function playRound() {
     const playerSelection = playerPrompt().toLowerCase();
 
     let tieMessage = "It's a tie!";
-    let winnerMessage = "You won!";
-    let loserMessage = "You lost!";
+    let winnerMessage = `You won! ${playerSelection} beats ${computerSelection}!`;
+    let loserMessage = `You lost! ${computerSelection} beats ${playerSelection}!`;
 
     console.log(`Computer played ${computerSelection}`);
     console.log(`You played ${playerSelection}`);
