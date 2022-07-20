@@ -31,9 +31,9 @@ function playRound() {
     const computerSelection = computerPlay().toLowerCase(); // capitalize first letter so the winnerMessage and loserMessage will be properly capitalized
     const playerSelection = playerPrompt().toLowerCase();
 
-    let tieMessage = "It's a tie!"; // message shown in case of a tie
-    let winnerMessage = `You won! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}!`; // message shown if player wins
-    let loserMessage = `You lost! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}!`; // message shown if player loses
+    let tieMessage = "It's a tie for this round!"; // message shown in case of a tie
+    let winnerMessage = `You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}!`; // message shown if player wins
+    let loserMessage = `You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}!`; // message shown if player loses
 
     console.log(`Computer played ${computerSelection}`);
     console.log(`You played ${playerSelection}`);
@@ -55,13 +55,34 @@ function playRound() {
     }
 }
 
-playRound()
-
 function game() {
 
-for (let i = 0; i < 5; i++) {
-    console.log(i);
+    function getScore() {
+        let playerScore = 0,
+            computerScore = 0;
+
+        if (console.log(tieMessage)) {
+            return playerScore++, computerScore++
+        } else if (console.log(winnerMessage)) {
+            return playerScore++
+        } else if (console.log(loserMessage)) {
+            return computerScore++
+        }
     }
-}
+
+    function finalWinner() {
+        if (playerScore === computerScore) {
+            return console.log("Unbelievable! The game ends in a tie.")
+        } else if (playerScore > computerScore) {
+            return console.log("You've won the game!")
+        } else if (computerScore > playerScore) {
+            return console.log("You've lost the game...")
+        }
+    }
+
+    for (let i = 0; i < 5; i++) {
+        playRound() 
+        }
+    }
 
 game()
