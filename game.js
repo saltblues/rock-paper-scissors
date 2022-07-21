@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function computerPlay() { 
     let computerStrategy = [ // Create array for computer. Must use brackets[], not parentheses().
         "rock", 
@@ -6,7 +9,7 @@ function computerPlay() {
     ];
 
     let randomStrategy = computerStrategy[Math.floor(Math.random() * computerStrategy.length)]; // Choose random string from computerStrategy. 
-    return randomStrategy; // Return the resulting value.
+    return randomStrategy // Return the resulting value.
 }
 
 function playerPrompt() { // Prompt for the player to type in their choice.
@@ -24,85 +27,69 @@ function playerPrompt() { // Prompt for the player to type in their choice.
 
 function playRound() {
 
-    const computerSelection = computerPlay().toLowerCase();
-    const playerSelection = playerPrompt().toLowerCase();
+    function capitalizeFirstLetter(string) {  // when playRound reports results, i want the first letter in the selection at the beginning of the sentence to be capitalized.
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }   
 
-    let tieMessage = "It's a tie!";
-    let winnerMessage = "You won this round!";
-    let loserMessage = "You lost this round!";
+    const computerSelection = computerPlay().toLowerCase(); // capitalize first letter so the winnerMessage and loserMessage will be properly capitalized
+    const playerSelection = playerPrompt().toLowerCase();
 
     console.log(`Computer played ${computerSelection}`);
     console.log(`You played ${playerSelection}`);
 
-    function getScore() {
-        let playerScore = 0,
-            computerScore = 0;
-        
-        return [playerScore, computerScore];
-    }
-    
-    let score = getScore();
-    let scoreReport = `Your score is ${playerScore} to ${computerScore}`;
-
-    if (computerSelection === playerSelection) { // If the selections are the same, it's a tie. Release tieMessage.
-        playerScore ++;
-        computerScore ++; 
-        console.log(scoreReport)
-        return score;
+    if (computerSelection === playerSelection) { // if the answers are the same, it's a tie. case insensitive.
+        playerWin = false;
+        computerWin = false;
     } else if (computerSelection === "rock" && playerSelection === "paper") {
-        playerScore++;
-        computerScore + 0;
-        console.log(scoreReport);
-        return score;
+        playerWin = true;
+        computerWin = false;
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
-        playerScore + 0;
-        computerScore++;
-        console.log(scoreReport);
-        return score;
+        playerWin = false;
+        computerWin = true;
     } else if (computerSelection === "paper" && playerSelection === "scissors") {
-        playerScore++;
-        computerScore + 0;
-        console.log(scoreReport);
-        return score;
+        playerWin = true;
+        computerWin = false;
     } else if (computerSelection === "paper" && playerSelection === "rock") {
-        playerScore + 0;
-        computerScore++;
-        console.log(scoreReport);
-        return score;
+        playerWin = false;
+        computerWin = true;
     } else if (computerSelection === "scissors" && playerSelection === "rock") {
-        playerScore++;
-        computerScore + 0;
-        console.log(scoreReport);
-        return score;
+        playerWin = true;
+        computerWin = false;
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
-        playerScore + 0;
-        computerScore++;
-        console.log(scoreReport);
-        return score;
+        playerWin = false;
+        computerWin = true;
     }
+
+    if (playerWin === true && computerWin === false) {
+        playerScore++;
+        console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
+    } else if (playerWin === false && computerWin === true) {
+        computerScore++;
+        console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`); // message shown if player loses);
+    } else if (playerWin === false && computerWin === false) {
+        console.log(`It's a tie for this round! Your score is ${playerScore} to ${computerScore}`); // message shown in case of a tie)
+    }
+
 }
 
 function game() {
-    
-    playRound()
-    getScore()
 
-    for (let i = 0; i < 5; i++) {
-
-        if ((playerScore + computerScore === 5) || (playerScore + computerScore === 10)) {
-            return finalResult();
+    function finalWinner() {
+        if (playerScore === computerScore) {
+            console.log("Unbelievable! The game ends in a draw.")
+        } else if (playerScore > computerScore) {
+            console.log("You've won the game!")
+        } else if (computerScore > playerScore) {
+            console.log("You've lost the game...")
         }
     }
-    
-    function finalResult() {
-        if (playerScore > computerScore) {
-        console.log("You won the game!");
+
+    for (let i = 0; i < 6; i++) {
+        if (i === 5) {
+            return finalWinner()
         }
-        else if (playerScore < computerScore) {
-        console.log("You lost the game...");
-        }
-        else if (computerScore === playerScore) {
-        console.log("Unbelievable! The game ends in a tie.");
+        else {
+            playRound()
         }
     }
    
