@@ -75,24 +75,24 @@ function playRound() {
 
 function game() {
 
-//    function finalWinner() {
-//        if (tieStatus === true) {
-//            return console.log("Unbelievable! The game ends in a tie.")
-//        } else if (scoreReport === win) {
-//            return console.log("You've won the game!")
-//        } else if (scoreReport === lose) {
-//            return console.log("You've lost the game...")
-//        }
-//    }
+    function finalWinner() {
+        if (playerScore === computerScore) {
+            console.log("Unbelievable! The game ends in a draw.")
+        } else if (playerScore > computerScore) {
+            console.log("You've won the game!")
+        } else if (computerScore > playerScore) {
+            console.log("You've lost the game...")
+        }
+    }
 
     for (let i = 0; i < 6; i++) {
-//        if (i === 5) {
-//            return finalWinner()
-//        }
-//        else {
+        if (i === 5) {
+            return finalWinner()
+        }
+        else {
             playRound()
         }
-//    }
+    }
 }
 
 game()
