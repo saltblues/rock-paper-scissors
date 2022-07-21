@@ -2,7 +2,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 function computerPlay() { 
-    let computerStrategy = [ // Create array for computer. Must use brackets[], not parentheses().
+    const computerStrategy = [ // Create array for computer. Must use brackets[], not parentheses().
         "rock", 
         "paper", 
         "scissors"
