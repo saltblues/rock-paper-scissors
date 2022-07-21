@@ -39,31 +39,24 @@ function playRound() {
     console.log(`You played ${playerSelection}`);
 
     if (computerSelection === playerSelection) { // if the answers are the same, it's a tie. case insensitive.
-        draw = true;
         playerWin = false;
         computerWin = false;
     } else if (computerSelection === "rock" && playerSelection === "paper") {
-        draw = false;
         playerWin = true;
         computerWin = false;
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
-        draw = false;
         playerWin = false;
         computerWin = true;
     } else if (computerSelection === "paper" && playerSelection === "scissors") {
-        draw = false;
         playerWin = true;
         computerWin = false;
     } else if (computerSelection === "paper" && playerSelection === "rock") {
-        draw = false;
         playerWin = false;
         computerWin = true;
     } else if (computerSelection === "scissors" && playerSelection === "rock") {
-        draw = false;
         playerWin = true;
         computerWin = false;
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
-        draw = false;
         playerWin = false;
         computerWin = true;
     }
@@ -74,7 +67,7 @@ function playRound() {
     } else if (playerWin === false && computerWin === true) {
         computerScore++;
         console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`); // message shown if player loses);
-    } else {
+    } else if (playerWin === false && computerWin === false) {
         console.log(`It's a tie for this round! Your score is ${playerScore} to ${computerScore}`); // message shown in case of a tie)
     }
 
