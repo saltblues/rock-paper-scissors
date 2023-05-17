@@ -2,42 +2,42 @@ let playerScore = 0;
 let computerScore = 0;
 
 function computerPlay() { 
-    const computerStrategy = [ // Create array for computer. Must use brackets[], not parentheses().
+    const computerStrategy = [
         "rock", 
         "paper", 
         "scissors"
     ];
 
-    let randomStrategy = computerStrategy[Math.floor(Math.random() * computerStrategy.length)]; // Choose random string from computerStrategy. 
-    return randomStrategy // Return the resulting value.
+    let randomStrategy = computerStrategy[Math.floor(Math.random() * computerStrategy.length)]; 
+    return randomStrategy
 }
 
 function playerPrompt() {
-    let playerInput = (prompt('Choose rock, paper, or scissors.', '')); // playerInput is the string entered into the prompt.
-        if (playerInput.toLowerCase() === 'rock') { // .toLowerCase() converts playerInput to lowercase and compares to choices in lowercase, so that it is case insensitive.
-            return playerInput // If playerInput is true, it will pass on.
+    let playerInput = (prompt('Choose rock, paper, or scissors.', ''));
+        if (playerInput.toLowerCase() === 'rock') { 
+            return playerInput
         } else if (playerInput.toLowerCase() === 'paper') {
-            return playerInput // Previously, I put "return playerInput === true" but that would make it more lengthy when I need the value. Then I put "return playerInput === 'Rock'" but I'm not sure if it's better to have it as the player typed it.
+            return playerInput
         } else if (playerInput.toLowerCase() === 'scissors') {
             return playerInput
         } else {
-            console.log('Take the game seriously and try again.') // If playerInput is not rock paper or scissors it will not be accepted. Player must try again.
+            console.log('Take the game seriously and try again.')
         }
     }
 
 function playRound() {
 
-    function capitalizeFirstLetter(string) {  // when playRound reports results, i want the first letter in the selection at the beginning of the sentence to be capitalized.
+    function capitalizeFirstLetter(string) {  // capitalize first letter of the result report
         return string.charAt(0).toUpperCase() + string.slice(1);
     }   
 
-    const computerSelection = computerPlay().toLowerCase(); // capitalize first letter so the winnerMessage and loserMessage will be properly capitalized
+    const computerSelection = computerPlay().toLowerCase();
     const playerSelection = playerPrompt().toLowerCase();
 
     console.log(`Computer played ${computerSelection}`);
     console.log(`You played ${playerSelection}`);
 
-    if (computerSelection === playerSelection) { // if the answers are the same, it's a tie. case insensitive.
+    if (computerSelection === playerSelection) {
         playerWin = false;
         computerWin = false;
     } else if (computerSelection === "rock" && playerSelection === "paper") {
@@ -65,9 +65,9 @@ function playRound() {
         console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
     } else if (playerWin === false && computerWin === true) {
         computerScore++;
-        console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`); // message shown if player loses);
+        console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
     } else if (playerWin === false && computerWin === false) {
-        console.log(`It's a tie for this round! Your score is ${playerScore} to ${computerScore}`); // message shown in case of a tie)
+        console.log(`It's a tie for this round! Your score is ${playerScore} to ${computerScore}`);
     }
 
 }
