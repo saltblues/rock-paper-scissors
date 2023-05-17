@@ -12,7 +12,7 @@ function computerPlay() {
     return randomStrategy // Return the resulting value.
 }
 
-function playerPrompt() { // Prompt for the player to type in their choice.
+function playerPrompt() {
     let playerInput = (prompt('Choose rock, paper, or scissors.', '')); // playerInput is the string entered into the prompt.
         if (playerInput.toLowerCase() === 'rock') { // .toLowerCase() converts playerInput to lowercase and compares to choices in lowercase, so that it is case insensitive.
             return playerInput // If playerInput is true, it will pass on.
