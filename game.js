@@ -84,14 +84,20 @@ function game() {
         }
     }
 
-    for (let i = 0; i < 6; i++) {
-        if (i === 5) {
-            return finalWinner()
-        }
-        else {
-            playRound()
-        }
+    if (playerScore === 5 || computerScore === 5) {
+        return finalWinner()
+    } else {
+        playRound()
     }
+
+//    for (let i = 0; i < 6; i++) {
+//        if (i === 5) {
+//            return finalWinner()
+//        }
+//        else {
+//            playRound()
+//        }
+//    }
    
 }
 
