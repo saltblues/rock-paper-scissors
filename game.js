@@ -74,21 +74,21 @@ function playRound() {
 
 function game() {
 
-    function finalWinner() {
-        if (playerScore === computerScore) {
-            console.log("Unbelievable! The game ends in a draw.")
-        } else if (playerScore > computerScore) {
+//    function finalWinner() {
+        if (playerScore === 5) {
             console.log("You've won the game!")
-        } else if (computerScore > playerScore) {
+        } else if (computerScore === 5) {
             console.log("You've lost the game...")
+        } else {
+            playRound()
         }
-    }
+//    }
 
-    if (playerScore === 5 || computerScore === 5) {
-        return finalWinner()
-    } else {
-        playRound()
-    }
+//    if (playerScore === 5 || computerScore === 5) {
+//        return finalWinner()
+//    } else {
+//        playRound()
+//    }
 
 //    for (let i = 0; i < 6; i++) {
 //        if (i === 5) {
