@@ -38,37 +38,36 @@ function playRound() {
     console.log(`You played ${playerSelection}`);
 
     if (computerSelection === playerSelection) {
-        playerWin = false;
-        computerWin = false;
+        console.log(`It's a tie for this round! Your score is ${playerScore} to ${computerScore}`)
     } else if (computerSelection === "rock" && playerSelection === "paper") {
-        playerWin = true;
-        computerWin = false;
-    } else if (computerSelection === "rock" && playerSelection === "scissors") {
-        playerWin = false;
-        computerWin = true;
-    } else if (computerSelection === "paper" && playerSelection === "scissors") {
-        playerWin = true;
-        computerWin = false;
-    } else if (computerSelection === "paper" && playerSelection === "rock") {
-        playerWin = false;
-        computerWin = true;
-    } else if (computerSelection === "scissors" && playerSelection === "rock") {
-        playerWin = true;
-        computerWin = false;
-    } else if (computerSelection === "scissors" && playerSelection === "paper") {
-        playerWin = false;
-        computerWin = true;
-    }
-
-    if (playerWin === true && computerWin === false) {
         playerScore++;
         console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
-    } else if (playerWin === false && computerWin === true) {
+    } else if (computerSelection === "rock" && playerSelection === "scissors") {
         computerScore++;
         console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
-    } else if (playerWin === false && computerWin === false) {
-        console.log(`It's a tie for this round! Your score is ${playerScore} to ${computerScore}`);
+    } else if (computerSelection === "paper" && playerSelection === "scissors") {
+        playerScore++;
+        console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
+    } else if (computerSelection === "paper" && playerSelection === "rock") {
+        computerScore++
+        console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
+    } else if (computerSelection === "scissors" && playerSelection === "rock") {
+        playerScore++;
+        console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
+    } else if (computerSelection === "scissors" && playerSelection === "paper") {
+        computerScore++;
+        console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
     }
+
+//    if (playerWin === true && computerWin === false) {
+//        playerScore++;
+//        console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
+//    } else if (playerWin === false && computerWin === true) {
+//        computerScore++;
+//        console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
+//    } else if (playerWin === false && computerWin === false) {
+//        console.log(`It's a tie for this round! Your score is ${playerScore} to ${computerScore}`);
+//    }
 
 }
 
