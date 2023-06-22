@@ -18,8 +18,8 @@ function computerPlay() {
 }
 
 choiceBtns.forEach(button => button.addEventListener("click", () => {
-
-    
+    playerSelection = button.textContent;
+    computerSelection = computerPlay()
 }))
 
 //function playerPrompt() {
