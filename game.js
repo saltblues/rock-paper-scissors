@@ -1,6 +1,11 @@
 let playerScore = 0;
 let computerScore = 0;
 
+const playerText = document.querySelector("#playerText");
+const computerText = document.querySelector("#computerText");
+const resultText = document.querySelector("#resultText");
+const choiceBtns = document.querySelectorAll(".choiceBtn");
+
 function computerPlay() { 
     const computerStrategy = [
         "rock", 
@@ -12,18 +17,23 @@ function computerPlay() {
     return randomStrategy
 }
 
-function playerPrompt() {
-    let playerInput = (prompt('Choose rock, paper, or scissors.', ''));
-        if (playerInput.toLowerCase() === 'rock') { 
-            return playerInput
-        } else if (playerInput.toLowerCase() === 'paper') {
-            return playerInput
-        } else if (playerInput.toLowerCase() === 'scissors') {
-            return playerInput
-        } else {
-            console.log('Take the game seriously and try again.')
-        }
-    }
+choiceBtns.forEach(button => button.addEventListener("click", () => {
+
+    
+}))
+
+//function playerPrompt() {
+//    let playerInput = (prompt('Choose rock, paper, or scissors.', ''));
+//        if (playerInput.toLowerCase() === 'rock') { 
+//            return playerInput
+//        } else if (playerInput.toLowerCase() === 'paper') {
+//            return playerInput
+//        } else if (playerInput.toLowerCase() === 'scissors') {
+//            return playerInput
+//        } else {
+//            console.log('Take the game seriously and try again.')
+//        }
+//    }
 
 function playRound() {
 
