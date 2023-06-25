@@ -18,21 +18,18 @@ function computerPlay() {
 }
 
 choiceBtns.forEach(button => button.addEventListener("click", () => {
-    playerSelection = button.textContent;
-    computerSelection = computerPlay();
+    playerSelection = console.log(button.textContent);
+    computerSelection = console.log(computerPlay());
 }))
 
 function playRound() {
 
-    function capitalizeFirstLetter(string) {  // capitalize first letter of the result report
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }   
-
-    const computerSelection = computerPlay().toLowerCase();
-    const playerSelection = playerPrompt().toLowerCase();
-
-    console.log(`Computer played ${computerSelection}`);
-    console.log(`You played ${playerSelection}`);
+//    function capitalizeFirstLetter(string) {  // capitalize first letter of the result report
+//        return string.charAt(0).toUpperCase() + string.slice(1);
+//    }   
+//
+//    console.log(`Computer played ${computerSelection}`);
+//    console.log(`You played ${playerSelection}`);
 
     if (computerSelection === playerSelection) {
         console.log(`It's a tie for this round! Your score is ${playerScore} to ${computerScore}`)
