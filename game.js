@@ -1,6 +1,3 @@
-let playerScore = 0;
-let computerScore = 0;
-
 const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
 const resultText = document.querySelector("#resultText");
@@ -8,6 +5,8 @@ const choiceBtns = document.querySelectorAll(".choiceBtn");
 let playerSelection;
 let computerSelection;
 let result;
+let playerScoreText = document.querySelector("#playerScoreText")
+let computerScoreText = document.querySelector("#computerScoreText");
 
 choiceBtns.forEach(button => button.addEventListener("click", () => {
 
@@ -29,41 +28,46 @@ function computerPlay() {
     return randomStrategy
 }
 
-function playRound() {
-
-    if (computerSelection == playerSelection) {
-        return "Draw!"
-    } else if (computerSelection == "rock" && playerSelection == "paper") {
-        playerScore++
-        return "You won!"
-    } else if (computerSelection == "rock" && playerSelection == "scissors") {
-        computerScore++
-        return "You lost!"
-    } else if (computerSelection == "paper" && playerSelection == "scissors") {
-        playerScore++
-       return "You won!"
-    } else if (computerSelection == "paper" && playerSelection == "rock") {
-        computerScore++
-        return "You lost!"
-    } else if (computerSelection == "scissors" && playerSelection == "rock") {
-        playerScore++
-        return "You won!"
-    } else if (computerSelection == "scissors" && playerSelection == "paper") {
-        computerScore++
-        return "You lost!"
-    }
-
-}
-
 function game() {
 
+    let playerScore = 0;
+    let computerScore = 0;
+
+
+    function playRound() {
+        
+        if (computerSelection == playerSelection) {
+            return "Draw!"
+        } else if (computerSelection == "rock" && playerSelection == "paper") {
+            playerScore++
+            return "You won!"
+        } else if (computerSelection == "rock" && playerSelection == "scissors") {
+            computerScore++
+            return "You lost!"
+        } else if (computerSelection == "paper" && playerSelection == "scissors") {
+            playerScore++
+        return "You won!"
+        } else if (computerSelection == "paper" && playerSelection == "rock") {
+            computerScore++
+            return "You lost!"
+        } else if (computerSelection == "scissors" && playerSelection == "rock") {
+            playerScore++
+            return "You won!"
+        } else if (computerSelection == "scissors" && playerSelection == "paper") {
+            computerScore++
+            return "You lost!"
+        }}
+
+    function score() {
         if (playerScore === 5) {
-            console.log("You've won the game!")
+            return "You've won the game!"
         } else if (computerScore === 5) {
-            console.log("You've lost the game...")
+            return "You've lost the game!"
         } else {
             playRound()
         }
+    }
+    score()
 }
 
 game()
