@@ -28,13 +28,7 @@ function computerPlay() {
     return randomStrategy
 }
 
-function game() {
-
-    let playerScore = 0;
-    let computerScore = 0;
-
-
-    function playRound() {
+function playRound() {
         
         if (computerSelection == playerSelection) {
             return "Draw!"
@@ -56,7 +50,15 @@ function game() {
         } else if (computerSelection == "scissors" && playerSelection == "paper") {
             computerScore++
             return "You lost!"
-        }}
+        }
+    }
+
+function game() {
+
+    let playerScore = 0;
+    let computerScore = 0;
+
+    
 
     function score() {
         if (playerScore === 5) {
@@ -64,7 +66,7 @@ function game() {
         } else if (computerScore === 5) {
             return "You've lost the game!"
         } else {
-            playRound()
+            return "Play another round!"
         }
     }
     score()
