@@ -56,18 +56,15 @@ function playRound() {
         }
     }
 
-function game() {
 
-    function score() {
-        if (playerScore === 5) {
-            return "You've won the game!"
-        } else if (computerScore === 5) {
-            return "You've lost the game!"
-        } else {
-            return "Play another round!"
+function score() {
+    if (playerScore === 5) {
+        return "You've won the game!"
+    } else if (computerScore === 5) {
+        return "You've lost the game!"
+    } else {
+        return "Play another round!"
         }
     }
-    score()
-}
 
-game()
+score()
