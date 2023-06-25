@@ -19,7 +19,7 @@ function computerPlay() {
 
 choiceBtns.forEach(button => button.addEventListener("click", () => {
     playerSelection = button.textContent;
-    computerSelection = computerPlay()
+    computerSelection = computerPlay();
 }))
 
 //function playerPrompt() {
@@ -91,7 +91,7 @@ function game() {
         } else {
             playRound()
         }
-//    }
+}
 
 //    if (playerScore === 5 || computerScore === 5) {
 //        return finalWinner()
