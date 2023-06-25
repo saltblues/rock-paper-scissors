@@ -13,8 +13,8 @@ choiceBtns.forEach(button => button.addEventListener("click", () => {
 
     playerSelection = button.textContent;
     computerSelection = computerPlay();
-    playerText.textContent = `Player: ${playerSelection}`;
-    computerText.textContent = `Computer: ${computerSelection}`;
+    playerText.textContent = `You played ${playerSelection}`;
+    computerText.textContent = `Computer played ${computerSelection}`;
     resultText.textContent = playRound();
 }));
 
@@ -34,17 +34,17 @@ function playRound() {
     if (computerSelection == playerSelection) {
         return "Draw!"
     } else if (computerSelection == "rock" && playerSelection == "paper") {
-        return "You Won!";
+        return "You won!";
     } else if (computerSelection == "rock" && playerSelection == "scissors") {
-        return "You Lost!"
+        return "You lost!"
     } else if (computerSelection == "paper" && playerSelection == "scissors") {
-       return "You Won!"
+       return "You won!"
     } else if (computerSelection == "paper" && playerSelection == "rock") {
-        return "You Lost!"
+        return "You lost!"
     } else if (computerSelection == "scissors" && playerSelection == "rock") {
-        return "You Won!"
+        return "You won!"
     } else if (computerSelection == "scissors" && playerSelection == "paper") {
-        return "You Lost!"
+        return "You lost!"
     }
 
 }
