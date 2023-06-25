@@ -18,6 +18,8 @@ choiceBtns.forEach(button => button.addEventListener("click", () => {
     playerText.textContent = `You played ${playerSelection}`;
     computerText.textContent = `Computer played ${computerSelection}`;
     resultText.textContent = playRound();
+    playerScoreText.textContent = `Player: ${playerScore}`;
+    computerScoreText.textContent = `Computer: ${computerScore}`;
 }));
 
 function computerPlay() { 
@@ -57,7 +59,7 @@ function playRound() {
     }
 
 
-function score() {
+function finalScore() {
     if (playerScore === 5) {
         return "You've won the game!"
     } else if (computerScore === 5) {
@@ -66,5 +68,3 @@ function score() {
         return "Play another round!"
         }
     }
-
-score()
