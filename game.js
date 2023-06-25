@@ -20,9 +20,9 @@ choiceBtns.forEach(button => button.addEventListener("click", () => {
 
 function computerPlay() { 
     const computerStrategy = [
-        "Rock", 
-        "Paper", 
-        "Scissors"
+        "rock", 
+        "paper", 
+        "scissors"
     ];
 
     let randomStrategy = computerStrategy[Math.floor(Math.random() * computerStrategy.length)]; 
@@ -34,22 +34,16 @@ function playRound() {
     if (computerSelection == playerSelection) {
         return "Draw!"
     } else if (computerSelection == "rock" && playerSelection == "paper") {
-        playerScore++;
         return "You Won!";
     } else if (computerSelection == "rock" && playerSelection == "scissors") {
-        computerScore++;
         return "You Lost!"
     } else if (computerSelection == "paper" && playerSelection == "scissors") {
-        playerScore++;
        return "You Won!"
     } else if (computerSelection == "paper" && playerSelection == "rock") {
-        computerScore++
         return "You Lost!"
     } else if (computerSelection == "scissors" && playerSelection == "rock") {
-        playerScore++;
         return "You Won!"
     } else if (computerSelection == "scissors" && playerSelection == "paper") {
-        computerScore++;
         return "You Lost!"
     }
 
