@@ -12,7 +12,7 @@ choiceBtns.forEach(button => button.addEventListener("click", () => {
     computerSelection = computerPlay();
     playerText.textContent = `Player: ${playerSelection}`;
     computerText.textContent = `Computer: ${computerSelection}`;
-    resultText.textContent = playRound()
+    resultText.textContent = playRound();
 }));
 
 function computerPlay() { 
@@ -35,24 +35,24 @@ function playRound() {
 //    console.log(`Computer played ${computerSelection}`);
 //    console.log(`You played ${playerSelection}`);
 
-    if (computerSelection === playerSelection) {
+    if (computerSelection == playerSelection) {
         console.log(`It's a tie for this round! Your score is ${playerScore} to ${computerScore}`)
-    } else if (computerSelection === "rock" && playerSelection === "paper") {
+    } else if (computerSelection == "rock" && playerSelection == "paper") {
         playerScore++;
         console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
-    } else if (computerSelection === "rock" && playerSelection === "scissors") {
+    } else if (computerSelection == "rock" && playerSelection == "scissors") {
         computerScore++;
         console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
-    } else if (computerSelection === "paper" && playerSelection === "scissors") {
+    } else if (computerSelection == "paper" && playerSelection == "scissors") {
         playerScore++;
         console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
-    } else if (computerSelection === "paper" && playerSelection === "rock") {
+    } else if (computerSelection == "paper" && playerSelection == "rock") {
         computerScore++
         console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
-    } else if (computerSelection === "scissors" && playerSelection === "rock") {
+    } else if (computerSelection == "scissors" && playerSelection == "rock") {
         playerScore++;
         console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
-    } else if (computerSelection === "scissors" && playerSelection === "paper") {
+    } else if (computerSelection == "scissors" && playerSelection == "paper") {
         computerScore++;
         console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
     }
