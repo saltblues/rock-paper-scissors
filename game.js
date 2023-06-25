@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
 const resultText = document.querySelector("#resultText");
@@ -54,11 +57,6 @@ function playRound() {
     }
 
 function game() {
-
-    let playerScore = 0;
-    let computerScore = 0;
-
-    
 
     function score() {
         if (playerScore === 5) {
