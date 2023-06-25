@@ -34,16 +34,22 @@ function playRound() {
     if (computerSelection == playerSelection) {
         return "Draw!"
     } else if (computerSelection == "rock" && playerSelection == "paper") {
-        return "You won!";
+        playerScore++
+        return "You won!"
     } else if (computerSelection == "rock" && playerSelection == "scissors") {
+        computerScore++
         return "You lost!"
     } else if (computerSelection == "paper" && playerSelection == "scissors") {
+        playerScore++
        return "You won!"
     } else if (computerSelection == "paper" && playerSelection == "rock") {
+        computerScore++
         return "You lost!"
     } else if (computerSelection == "scissors" && playerSelection == "rock") {
+        playerScore++
         return "You won!"
     } else if (computerSelection == "scissors" && playerSelection == "paper") {
+        computerScore++
         return "You lost!"
     }
 
