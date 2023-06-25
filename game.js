@@ -8,15 +8,18 @@ const choiceBtns = document.querySelectorAll(".choiceBtn");
 
 choiceBtns.forEach(button => button.addEventListener("click", () => {
 
-    playerSelection = console.log(button.textContent);
-    computerSelection = console.log(computerPlay());
+    playerSelection = button.textContent;
+    computerSelection = computerPlay();
+    playerText.textContent = `Player: ${playerSelection}`;
+    computerText.textContent = `Computer: ${computerSelection}`;
+    resultText.textContent = playRound()
 }));
 
 function computerPlay() { 
     const computerStrategy = [
-        "rock", 
-        "paper", 
-        "scissors"
+        "Rock", 
+        "Paper", 
+        "Scissors"
     ];
 
     let randomStrategy = computerStrategy[Math.floor(Math.random() * computerStrategy.length)]; 
