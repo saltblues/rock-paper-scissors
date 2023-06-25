@@ -10,6 +10,7 @@ let computerSelection;
 let result;
 let playerScoreText = document.querySelector("#playerScoreText")
 let computerScoreText = document.querySelector("#computerScoreText");
+let gameResult = document.querySelector('#gameResult');
 
 choiceBtns.forEach(button => button.addEventListener("click", () => {
 
@@ -20,7 +21,14 @@ choiceBtns.forEach(button => button.addEventListener("click", () => {
     resultText.textContent = playRound();
     playerScoreText.textContent = `You: ${playerScore}`;
     computerScoreText.textContent = `Computer: ${computerScore}`;
+    gameResult.textContent = finalScore();
 }));
+
+function disableButtons() {
+    choiceBtns.forEach(elem => {
+        elem.disabled = true
+    })
+}
 
 function computerPlay() { 
     const computerStrategy = [
@@ -60,10 +68,13 @@ function playRound() {
 
 
 function finalScore() {
+    
     if (playerScore === 5) {
-        return "You've won the game!"
+        disableButtons()
+        return "You've won the game! Refresh to play again."
     } else if (computerScore === 5) {
-        return "You've lost the game!"
+        disableButtons()
+        return "You've lost the game... Refresh to play again."
     } else {
         return "Play another round!"
         }
