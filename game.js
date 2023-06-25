@@ -5,6 +5,9 @@ const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
 const resultText = document.querySelector("#resultText");
 const choiceBtns = document.querySelectorAll(".choiceBtn");
+let playerSelection;
+let computerSelection;
+let result;
 
 choiceBtns.forEach(button => button.addEventListener("click", () => {
 
@@ -28,33 +31,26 @@ function computerPlay() {
 
 function playRound() {
 
-//    function capitalizeFirstLetter(string) {  // capitalize first letter of the result report
-//        return string.charAt(0).toUpperCase() + string.slice(1);
-//    }   
-//
-//    console.log(`Computer played ${computerSelection}`);
-//    console.log(`You played ${playerSelection}`);
-
     if (computerSelection == playerSelection) {
-        console.log(`It's a tie for this round! Your score is ${playerScore} to ${computerScore}`)
+        return "Draw!"
     } else if (computerSelection == "rock" && playerSelection == "paper") {
         playerScore++;
-        console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
+        return "You Won!";
     } else if (computerSelection == "rock" && playerSelection == "scissors") {
         computerScore++;
-        console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
+        return "You Lost!"
     } else if (computerSelection == "paper" && playerSelection == "scissors") {
         playerScore++;
-        console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
+       return "You Won!"
     } else if (computerSelection == "paper" && playerSelection == "rock") {
         computerScore++
-        console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
+        return "You Lost!"
     } else if (computerSelection == "scissors" && playerSelection == "rock") {
         playerScore++;
-        console.log(`You won this round! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection}! Your score is ${playerScore} to ${computerScore}`);
+        return "You Won!"
     } else if (computerSelection == "scissors" && playerSelection == "paper") {
         computerScore++;
-        console.log(`You lost this round! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection}! Your score is ${playerScore} to ${computerScore}`);
+        return "You Lost!"
     }
 
 }
