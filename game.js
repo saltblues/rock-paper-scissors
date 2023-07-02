@@ -43,39 +43,39 @@ function computerPlay() {
 
 function playRound() {
         
-        if (computerSelection == playerSelection) {
-            return "Draw!"
-        } else if (computerSelection == "rock" && playerSelection == "paper") {
-            playerScore++
-            return "You won!"
-        } else if (computerSelection == "rock" && playerSelection == "scissors") {
-            computerScore++
-            return "You lost!"
-        } else if (computerSelection == "paper" && playerSelection == "scissors") {
-            playerScore++
+    if (computerSelection == playerSelection) {
+        return "Draw!"
+    } else if (computerSelection == "rock" && playerSelection == "paper") {
+        playerScore++
         return "You won!"
-        } else if (computerSelection == "paper" && playerSelection == "rock") {
-            computerScore++
-            return "You lost!"
-        } else if (computerSelection == "scissors" && playerSelection == "rock") {
-            playerScore++
-            return "You won!"
-        } else if (computerSelection == "scissors" && playerSelection == "paper") {
-            computerScore++
-            return "You lost!"
-        }
+    } else if (computerSelection == "rock" && playerSelection == "scissors") {
+        computerScore++
+        return "You lost!"
+    } else if (computerSelection == "paper" && playerSelection == "scissors") {
+        playerScore++
+    return "You won!"
+    } else if (computerSelection == "paper" && playerSelection == "rock") {
+        computerScore++
+        return "You lost!"
+    } else if (computerSelection == "scissors" && playerSelection == "rock") {
+        playerScore++
+        return "You won!"
+    } else if (computerSelection == "scissors" && playerSelection == "paper") {
+        computerScore++
+        return "You lost!"
     }
+}
 
 
 function finalScore() {
     
-    if (playerScore === 5) {
-        disableButtons()
-        return "You've won the game! Refresh to play again."
-    } else if (computerScore === 5) {
-        disableButtons()
-        return "You've lost the game... Refresh to play again."
-    } else {
-        return "Play another round!"
-        }
+if (playerScore === 5) {
+    disableButtons()
+    return "You've won the game! Refresh to play again."
+} else if (computerScore === 5) {
+    disableButtons()
+    return "You've lost the game... Refresh to play again."
+} else {
+    return "Play another round!"
     }
+}
